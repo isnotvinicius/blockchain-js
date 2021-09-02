@@ -150,7 +150,7 @@ mineBlock(difficulty){
 }
 ```
 
-- Aqui temos um pequeno problema pois o hash do noso bloco não irá mudar a menos que o conteúdo do mesmo seja alterado, ou seja, nosso while é um loop infinito. Como não podemos alterar o index, timestamp e os outros valores do nosso bloco precisamos de outra solução. 
+- Aqui temos um pequeno problema pois o hash do nosso bloco não irá mudar a menos que o conteúdo do mesmo seja alterado, ou seja, nosso while é um loop infinito. Como não podemos alterar o index, timestamp e os outros valores do nosso bloco precisamos de outra solução. 
 
 - O Blockchain possuí um conceito chamado de ```Nonce (Number Only Used Once)```, que nada mais é do que um número aleatório que não tem nada a ver com o bloco e que pode ser alterado. O Nonce é o que os mineradores buscam, uma vez que a solução é achada eles recebem seu bloco.
 
