@@ -2,7 +2,7 @@
 
 ## 00: Como funciona o Blockchain
 
-- O Blockchain é um protocolo de registro distribuído. Cada bloco que faz parte da cadeia (de blocos) é protegido por um código criptografado e armazena uma informação. Quando o bloco é válidado e se junta aos demais blocos ele ganha um registro permanente que não pode ser alterado. Isso significa que sempre que um bloco já válidado é alterado, toda a cadeia se torna inválida, fazendo com que o Blockchain seja uma maneira segura de executar transações.
+- O Blockchain é um protocolo de registro distribuído. Cada bloco que faz parte da cadeia (de blocos) é protegido por um código criptografado e armazena uma informação. Quando o bloco é válidado e se junta aos demais blocos ele ganha um registro permanente que não pode ser alterado. Isso significa que sempre que um bloco já válidado é alterado toda a cadeia se torna inválida, fazendo com que o Blockchain seja uma maneira segura de executar transações.
 
 ## 01: Criando a Blockchain
 
