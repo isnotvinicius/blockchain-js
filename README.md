@@ -2,6 +2,7 @@
 
 ## 00: Como funciona o Blockchain
 
+- O Blockchain é um protocolo de registro distribuído. Cada bloco que faz parte da cadeia (de blocos) é protegido por um código criptografado e armazena uma informação. Quando o bloco é válidado e se junta aos demais blocos ele ganha um registro permanente que não pode ser alterado. Isso significa que sempre que um bloco já válidado é alterado, toda a cadeia se torna inválida, fazendo com que o Blockchain seja uma maneira segura de executar transações.
 
 ## 01: Criando a Blockchain
 
@@ -77,7 +78,7 @@ getLatestBlock(){
 }
 ```
 
-- Agora vamos implementar o método para adicionar um novo bloco a nossa corrente. Para isso precisamos primeiro atribuir a hash do bloco antigo à propriedade ```previousHash``` do novo bloco. Depois precisamos calcular o hash desse novo bloco. Por fim iremos adicioná-lo a nossa corrente.
+- Agora vamos implementar o método para adicionar um novo bloco a nossa cadeia. Para isso precisamos primeiro atribuir a hash do bloco antigo à propriedade ```previousHash``` do novo bloco. Depois precisamos calcular o hash desse novo bloco. Por fim iremos adicioná-lo a nossa cadeia.
 
 ```
 addBlock(newBlock){
@@ -97,17 +98,17 @@ isnotcoin.addBlock(new Block(2, "04/11/2021", { amount: 10 }));
 console.log(JSON.stringify(isnotcoin, null, 4));
 ```
 
-- Se você executar o arquivo com ```node main.js``` será impresso no seu terminal nossa corrente contendo nossos blocos. Note que os blocos estão interligados por suas hashs, onde a previousHash de um bloco corresponde a hash do bloco anterior ao dele. 
+- Se você executar o arquivo com ```node main.js``` será impresso no seu terminal nossa cadeia contendo nossos blocos. Note que os blocos estão interligados por suas hashs, onde a previousHash de um bloco corresponde a hash do bloco anterior ao dele. 
 
-- Como sabemos, se alterarmos um bloco na nossa corrente nós iremos invalidar a corrente inteira. No nosso caso nós não estamos verificando a integridade da nossa corrente, estamos apenas criando-a. Para isso vamos adicionar um novo método na nossa classe ```Blockchain```.
+- Como sabemos, se alterarmos um bloco na nossa cadeia nós iremos invalidar a cadeia inteira. No nosso caso nós não estamos verificando a integridade da nossa cadeia, estamos apenas criando-a. Para isso vamos adicionar um novo método na nossa classe ```Blockchain```.
 
-- No nosso método iremos adicionar um loop que passará por toda nossa corrente, lembrando que o loop deve ter início 1 pois nosso primeiro bloco é o Genesis. Dentro do nosso loop iremos recuperar o bloco atual e o bloco anterior para podermos dar início aos testes. 
+- No nosso método iremos adicionar um loop que passará por toda nossa cadeia, lembrando que o loop deve ter início 1 pois nosso primeiro bloco é o Genesis. Dentro do nosso loop iremos recuperar o bloco atual e o bloco anterior para podermos dar início aos testes. 
 
     1º - Verificamos se a hash do bloco atual é igual a hash calculada. 
 
     2º - Verificamos se o atributo previousHash do bloco atual é igual ao hash do bloco anterior.
 
-- Retornamos falso em ambos os casos e, caso percorra todo o loop sem cair em um dos if's, retornamos true informando que a corrente é válida.
+- Retornamos falso em ambos os casos e, caso percorra todo o loop sem cair em um dos if's, retornamos true informando que a cadeia é válida.
 
 ```
 isChainValid(){
@@ -128,11 +129,11 @@ isChainValid(){
 }
 ```
 
-- Com isso verificamos a integridade da nossa corrente, ou seja, caso algum bloco seja alterado a corrente se torna inválida. Mesmo que você altere o hash de um bloco a corrente será inválidada pois o relacionamento deste bloco com o anterior foi quebrado.
+- Com isso verificamos a integridade da nossa cadeia, ou seja, caso algum bloco seja alterado a cadeia se torna inválida. Mesmo que você altere o hash de um bloco a cadeia será inválidada pois o relacionamento deste bloco com o anterior foi quebrado.
 
 ## 02: Proof of Work
 
-- Até este ponto nós já conseguimos criar blocos e validar nossa corrente fácilmente, o problema é que caso alguém queira spammar nossa corrente e adicionar múltiplos blocos por segundo será possível e a proof of work, ou prova de trabalho, nos ajuda a evitar este spam.
+- Até este ponto nós já conseguimos criar blocos e validar nossa cadeia fácilmente, o problema é que caso alguém queira spammar nossa cadeia e adicionar múltiplos blocos por segundo será possível e a proof of work, ou prova de trabalho, nos ajuda a evitar este spam.
 
 - Proof of Work nada mais é do que um algoritmo que é demorado e muito caro de se produzir mas é fácil de se verificar que é válido. No Bitcoin é conhecido como "minerar", um processo demorado e custoso mas que, quando finalizado, é de fácil validação. No caso do Bitcoin, ele exige que o hash comece com uma certa quantidade de zeros, e como não podemos influenciar o cálculo de um hash o que nos resta é tentar inúmeras combinações até que achemos uma que bate com um hash cálculado.
 
@@ -224,4 +225,4 @@ class Blockchain{
 }
 ```
 
-- Se rodarmos nosso arquivo no terminal iremos notar que o bloco é minerado de forma extremamente rápida. Isso pode ser evitado incrementendado a dificuldade para se minerar um bloco. Com este mecânismo nós controlamos o quão rápido um bloco pode ser adicionado na nossa corrente.
+- Se rodarmos nosso arquivo no terminal iremos notar que o bloco é minerado de forma extremamente rápida. Isso pode ser evitado incrementendado a dificuldade para se minerar um bloco. Com este mecânismo nós controlamos o quão rápido um bloco pode ser adicionado na nossa cadeia.
